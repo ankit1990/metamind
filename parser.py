@@ -1,5 +1,5 @@
-import re;
 import nltk.corpus;
+import re;
 
 def cleanup(text):
   text = text.lower();
