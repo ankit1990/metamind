@@ -1,29 +1,37 @@
-def cleanup(features):
-  # Remove trailing spaces.
-  features = [e.rstrip() for e in features];
+import re;
+import nltk.corpus;
 
-  # Decapitalize elements.
-  features = [e.lower() for e in features];
- 
-  return features;
-  # TODO(Remove punctuations):
-  
+def cleanup(text):
+  text = text.lower();
+  text = re.sub("[^a-z]", " ", text);
+
+  # Remove trailing spaces.
+  words = [e.rstrip() for e in text.rsplit()];
+
+  # Remove stopwords.
+  stopwords = nltk.corpus.stopwords.words('english');
+  words = [w for w in words if not w in stopwords] ;
+
+  # Maybe have a better set of features consisting of porter
+  # stemming etc.
+  return words;
 
 # Parse a give .tsv file.
 def parseFeature(line):
   label = "";
-  features = [];
+  text = [];
 
   tokenizedWords = line.rsplit('\t');
 
   label = tokenizedWords[0];
 
-  features = tokenizedWords[1].rsplit(" ");
+  text = tokenizedWords[1];
 
-# Cleanup features.
-  features = cleanup(features);
-
-  print label, features;
+# Returns a comma separated list of words.
+  words = cleanup(text);
+  
+  print label, words;
+  return label, words;
 
 def parseFile(f):
   return f.readlines();
