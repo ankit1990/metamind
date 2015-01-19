@@ -40,4 +40,4 @@ class Model
   def getLabel(textLabel): 
    if textLabel == "positive":
      return 1; 
-   return -1;
+   return 0;
