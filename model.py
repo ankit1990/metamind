@@ -1,10 +1,10 @@
-import bag_of_dictionary;
+import bag_of_words;
 
 """
   Class encapsulating information between the label, text and their
   representation.
 """
-class Model
+class Model:
   
 # Let each feature vector be represented in a bag of dictionary model.
   def __init__(self):
@@ -16,28 +16,25 @@ class Model
   def addPoint(self, text, label):
     # for each word in label.
     for w in text:
-      if w not in self.dictionary
+      if w not in self.dictionary:
         self.dictionary.add(w);
     
     self.X.append(text);
     self.Y.append(label);
-  
-"""
-  Returns a list of feature vectors. The last element of each of the feature vector is either a +1
-  or -1, indicating that the text in question is either positive or negative.
-"""
-  def getTransformedFeatureVectors(self):
-    self.bow = BagOfWords(self.dictionary);
-   
-    fvs = [];
-    for i in range(1,len(self.X)):
-      label = getLabel(self.Y(i));
-      fv = self.bow.bagify(self.X(i));
-      fv.append(self.getLabel(self.Y(i));
-      fvs.append(fv);
-    return fvs;
 
-  def getLabel(textLabel): 
-   if textLabel == "positive":
-     return 1; 
-   return 0;
+  def getTransformedFeatureVectors(self):
+    bow = bag_of_words.BagOfWords(self.dictionary);
+    fvs = [];
+    labels = [];
+    for i in range(1,len(self.X)):
+      label = self.getLabel(self.Y[i]);
+      fv = [1];
+      fv.extend(bow.bagify(self.X[i]));
+      fvs.append(fv);
+      labels.append(self.getLabel(self.Y[i]));
+    return bow, fvs, labels;
+
+  def getLabel(self, textLabel): 
+    if textLabel == "positive":
+      return 1; 
+    return 0;

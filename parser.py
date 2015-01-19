@@ -1,3 +1,4 @@
+import bag_of_words;
 import nltk.corpus;
 import re;
 
@@ -30,17 +31,5 @@ def parseFeature(line):
 # Returns a comma separated list of words.
   words = cleanup(text);
   
-  print label, words;
-  return label, words;
+  return  words, label;
 
-def parseFile(f):
-  return f.readlines();
-
-def main():
-  f = open("data/movie-reviews-dataset.tsv", 'r');
-  lines = parseFile(f);
-  for line in lines:
-    parseFeature(line);
-
-if __name__ == "__main__":
-  main();   
