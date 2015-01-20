@@ -1,7 +1,8 @@
 import math;
 
 """
- Trains a feature module. Takes as input a list of feature vectors, labels, number of itearation for which gradient descent should be run, number of dimensions etc. and outputs coefficients for linear regression.
+ Input a list of feature vectors, labels, number of itearation for which gradient descent should be run.
+ Outputs coefficients for linear regression.
 """
 def trainLogisticRegressionClassifier(fvs, labels, numIterations):
   numCoefficients = len(fvs[0]);
@@ -23,6 +24,9 @@ def trainLogisticRegressionClassifier(fvs, labels, numIterations):
          coefficients[j] += 0.05  * (trainingLabel - confidence) * fv[j];
   return coefficients;
 
+"""
+ Classify classifies a feature as either positive or negative.
+"""
 def classify(coefficients, feature):
   p = sigmoid(coefficients, feature);
   if p > 0.5:

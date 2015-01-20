@@ -1,8 +1,8 @@
 import tornado.ioloop
 import tornado.web
 
+import classifier_handler;
 import uploader;
-import test;
 
 class MainHandler(tornado.web.RequestHandler):
   def get(self):
@@ -10,7 +10,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 application = tornado.web.Application([
   (r"/upload", uploader.Uploader),
-  (r"/test", test.ClassifierActionHandler),
+  (r"/test", classifier_handler.ClassifierActionHandler),
   (r"/", MainHandler),
 ], debug=True)
 
