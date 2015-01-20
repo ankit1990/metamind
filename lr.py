@@ -5,6 +5,7 @@ import math;
  Outputs coefficients for linear regression.
 """
 def trainLogisticRegressionClassifier(fvs, labels, numIterations):
+  print "Training a logistic regression with ", numIterations, " iterations.";
   numCoefficients = len(fvs[0]);
   coefficients = [0] * numCoefficients;
 # using gradient descent.

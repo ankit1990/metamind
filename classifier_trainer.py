@@ -29,8 +29,6 @@ class ClassifierTrainer:
       (f,v) = parser.parseFeature(line);
       m.addPoint(f, v);
  
-     print "Reading input data finished.";
-
      (dictionary, fvs, labels) = m.getTransformedFeatureVectors();
      betas = lr.trainLogisticRegressionClassifier(fvs, labels, 10);
   
@@ -42,4 +40,4 @@ class ClassifierTrainer:
  
      pickle.dump([betas, dictionary], open("classifier/" + filename, 'wb'));
      print betas; 
-     print misClassified, "/", len(fvs);
+     print "Misclassification ratio ", misClassified, "/", len(fvs);
