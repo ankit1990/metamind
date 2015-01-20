@@ -11,3 +11,6 @@ python server.py
 
 The server runs at port 8888. To access the url, please hit localhost:8888
 Check console to periodically check the status of task.
+
+Algorithm:
+Uses bag of words with logistic regression.
