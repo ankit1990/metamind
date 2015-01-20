@@ -5,7 +5,7 @@ import tornado.web
 
 import bag_of_words;
 import model;
-import train;
+import lr;
 import parser;
 
 
@@ -26,7 +26,7 @@ class ClassifierActionHandler(tornado.web.RequestHandler):
         bow = bag_of_words.BagOfWords(dictionary);
         fv = [1]
         fv.extend(bow.bagify(words))
-        predictedClass = train.classify(betas, fv);
+        predictedClass = lr.classify(betas, fv);
         if predictedClass == 1:
           self.write("The given sentence was found to be positive.");
         else:
@@ -65,11 +65,11 @@ def trainModel(filename):
   print "Reading input data finished.";
 
   (dictionary, fvs, labels) = m.getTransformedFeatureVectors();  
-  betas = train.logisticRegression(fvs, labels, 10);
+  betas = lr.trainLogisticRegressionClassifier(fvs, labels, 10);
   
   misClassified = 0;
   for i in range(1,len(fvs)):
-    predicted = train.classify(betas, fvs[i]); 
+    predicted = lr.classify(betas, fvs[i]); 
     if predicted != labels[i]:
       misClassified += 1;
  

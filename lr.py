@@ -3,7 +3,7 @@ import math;
 """
  Trains a feature module. Takes as input a list of feature vectors, labels, number of itearation for which gradient descent should be run, number of dimensions etc. and outputs coefficients for linear regression.
 """
-def logisticRegression(fvs, labels, numIterations):
+def trainLogisticRegressionClassifier(fvs, labels, numIterations):
   numCoefficients = len(fvs[0]);
   coefficients = [0] * numCoefficients;
 # using gradient descent.
