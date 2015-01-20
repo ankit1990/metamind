@@ -11,14 +11,14 @@ import parser;
 
 class ClassifierActionHandler(tornado.web.RequestHandler):
   def get(self):
-    fileid = self.get_argument("id", "");
+    fileid = self.get_argument("id", None);
 
     if not fileid:
       self.finish("No id specified. Please specify an id.");
       return;
 
     if os.path.exists("classifier/" + fileid):
-      sentence = self.get_argument("sentence");
+      sentence = self.get_argument("sentence", None);
       if sentence is not None:
         words = parser.parseText(sentence);
         print words;
