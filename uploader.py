@@ -10,5 +10,5 @@ class Uploader(tornado.web.RequestHandler):
     fh = open("data/" + cname, 'w');
     fh.write(fileinfo['body']);
     self.finish("<div>"
-      + "File upload was successful. Please check <a href=test.html?id=" + cname + ">"
+      + "File upload was successful. Please check <a href=test?id=" + cname + ">"
       +  " this </a> link to train/test the classifier. </div>");

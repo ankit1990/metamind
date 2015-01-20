@@ -33,3 +33,8 @@ def parseFeature(line):
   
   return  words, label;
 
+def parseText(text):
+# Returns a comma separated list of words.
+  words = cleanup(text);
+
+  return words;

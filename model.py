@@ -32,7 +32,7 @@ class Model:
       fv.extend(bow.bagify(self.X[i]));
       fvs.append(fv);
       labels.append(self.getLabel(self.Y[i]));
-    return bow, fvs, labels;
+    return self.dictionary, fvs, labels;
 
   def getLabel(self, textLabel): 
     if textLabel == "positive":

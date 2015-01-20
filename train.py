@@ -19,7 +19,7 @@ def logisticRegression(fvs, labels, numIterations):
 # Update each of the coefficients.
        confidence = sigmoid(coefficients, fv);
        for j in range(1, numCoefficients):
-         coefficients[j] += 0.01  * (trainingLabel - confidence) * fv[j];
+         coefficients[j] += 0.05  * (trainingLabel - confidence) * fv[j];
   return coefficients;
 
 def classify(coefficients, feature):
