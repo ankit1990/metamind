@@ -2,8 +2,11 @@ metamind
 ========
 
 Interview Challenge for summer internship @Metamind
+</br>
 External Dependencies:
+<br/>
 1. NLTK (for identifying english stopwords)
+<br/>
 2. Tornado (python web server).
 
 To run the server:-
