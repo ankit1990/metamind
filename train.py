@@ -19,6 +19,7 @@ def logisticRegression(fvs, labels, numIterations):
 # Update each of the coefficients.
        confidence = sigmoid(coefficients, fv);
        for j in range(1, numCoefficients):
+# TODO(ankit): The value of rate should be determined dynamically.
          coefficients[j] += 0.05  * (trainingLabel - confidence) * fv[j];
   return coefficients;
 
